@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import { s3BucketName, s3BucketRegion } from "@/lib/meals";
 import classes from "./MealItem.module.css";
 
 const MealItem = ({ title, slug, image, summary, creator }: any) => {
@@ -8,7 +8,7 @@ const MealItem = ({ title, slug, image, summary, creator }: any) => {
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
-          <Image src={image} alt={title} fill />
+          <Image src={`https://${s3BucketName}.s3.${s3BucketRegion}.amazonaws.com/${image}`} alt={title} fill />
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>
