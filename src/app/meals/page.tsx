@@ -4,6 +4,11 @@ import Link from "next/link";
 import MealsGrid from "@/components/MealsGrid/MealsGrid";
 import { getMeals } from "@/lib/meals";
 
+export const metadata = {
+  title: "All Meals",
+  description: "Browse the delicious meals shared by out vibrant community.",
+};
+
 const Meals = async (): Promise<JSX.Element> => {
   const meals = await getMeals();
   return <MealsGrid meals={meals} />;
